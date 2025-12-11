@@ -1,1 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
+
+:root {
+    --color-bg: #1a1a1a;
+    --color-surface: #2d2d2d;
+    --color-text: #f5f5f5;
+    --color-text-secondary: #a0a0a0;
+    --color-primary: #00ffff;
+    --color-accent-pink: #ff1493;
+    --color-accent-yellow: #ffff00;
+    --color-accent-blue: #1e90ff;
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+        font-family: 'Hamon';
+        src: 
+            url('/assets/fonts/Hamon.otf')
+            format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+        font-family: 'Untold_History';
+        src: 
+            url('/assets/fonts/Untold_History.otf')
+            format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.arvo-regular {
+  font-family: "Arvo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.arvo-bold {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.arvo-regular-italic {
+  font-family: "Arvo", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.arvo-bold-italic {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Untold_History.otf', 'Courier New', Courier, monospace;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: 'Hamon.otf', sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: -2px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 1.5 rem 0;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+}
+
+p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 1 rem 0;
+}
+
+code {
+    background-color: rgba(255, 0, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Untold_History.otf', 'Courier New' Courier, monospace;
+    
+    color: var(--color-primary);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: 'Untold_History.otf', 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: all var(--duration-fast);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    transform: scale(1.05);
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    border-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.card {
+    background-color: rgba(45, 45, 45, 0.7);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all var(--duration-normal);
+}
+
+.card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: rgba(26, 26, 26, 0.9);
+    border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    margin-right: 2rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color var(--duration-fast);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+nav a.active {
+    color: var(--color-primary);
+}
+
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section h2 {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-card-inner {
+    aspect-ratio: 4/5;
+    background-color: var(--color-surface);
+    border: 3px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all var(--duration-normal);
+}
+
+.portfolio-card-inner:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+    transform: translateY(-10px);
+}
+
+.portfolio-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-note {
+    font-family: 'Comic Sans MS', cursive;
+    color: var(--color-accent-yellow);
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-top: auto;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-left: 3px solid rgba(0, 255, 255, 0.3);
+    position: relative;
+}
+
+.timeline-item:last-child {
+    border-left-color: var(--color-accent-pink);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    border: 2px solid var(--color-bg);
+}
+
+.timeline-item:last-child .timeline-dot {
+    background-color: var(--color-accent-pink);
+}
+
+.timeline-tag {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background-color: #0a0a0a;
+    border-top: 2px solid var(--color-primary);
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav a {
+        margin-right: 0;
+    }
+
+    .section {
+        padding: 2rem 1rem;
+    }
+}
