@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import './globals.css';
 import type { ReactNode } from 'react';
 
@@ -14,7 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <title>Bree|Portfolio</title>
+      </head>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
