@@ -1,46 +1,52 @@
 'use client';
 
+import { useState } from 'react';
 import Typewriter from './Typewriter';
 
 export default function Terminal() {
-  return (
-    <section
-      style={{
-        maxWidth: '800px',
-        margin: '40px auto',
-        padding: '24px',
-        borderRadius: '12px',
-        border: '1px solid #333',
-        background: '#050816',
-        color: '#E2E8F0',
-        fontFamily: 'monospace',
-      }}
-    >
-      <header
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginBottom: '16px',
-          fontSize: '14px',
-          color: '#9CA3AF',
-        }}
-      >
-        <span>~/bree_in_tech/system_reboot</span>
-        <span>zsh • node v20.x</span>
-      </header>
+  const [showContent, setShowContent] = useState(false);
 
-      <div style={{ marginBottom: '16px' }}>
-        <Typewriter text="System Reboot Initialized...Paramedic → Full Stack Developer" speed={40} />
+  return (
+    <div className="terminal">
+      <div className="terminal-header">
+        <div className="terminal-dots">
+          <span className="terminal-dot terminal-dot--red" />
+          <span className="terminal-dot terminal-dot--yellow" />
+          <span className="terminal-dot terminal-dot--green" />
+        </div>
+        <span className="terminal-title">~/bree/init.sh</span>
+        <div style={{ width: '52px' }} />
       </div>
 
-      <p style={{ marginBottom: '8px' }}>
-        I build accessible, user-friendly applications and digital tools that feel like a system upgrade—not a
-        patch.
-      </p>
+      <div className="terminal-body">
+        <div className="terminal-line">
+          <span className="terminal-prompt">
+            <Typewriter
+              text="whoami"
+              speed={80}
+              onComplete={() => setShowContent(true)}
+            />
+          </span>
+        </div>
 
-      <p style={{ fontSize: '14px', color: '#9CA3AF' }}>
-        Full Stack Web + Mobile Developer • React • React Native • Next.js
-      </p>
-    </section>
+        {showContent && (
+          <div className="terminal-output" style={{ marginTop: 'var(--space-md)' }}>
+            <p style={{ color: 'var(--color-text)', marginBottom: 'var(--space-sm)' }}>
+              Full Stack Developer
+            </p>
+            <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--space-md)', fontSize: '0.9375rem' }}>
+              I build thoughtful systems at the intersection of real-world pressure, technology, and care.
+            </p>
+            <div style={{ display: 'flex', gap: 'var(--space-sm)', flexWrap: 'wrap' }}>
+              <span className="tag">React</span>
+              <span className="tag">Next.js</span>
+              <span className="tag">React Native</span>
+              <span className="tag">TypeScript</span>
+              <span className="tag">Node.js</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

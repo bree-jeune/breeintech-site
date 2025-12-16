@@ -1,69 +1,80 @@
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
-export default function StoriesPage() {
-   const stories = [
+export default function LabsPage() {
+  const posts = [
     {
-      id: 1,
-      title: 'Debugging the System Reboot Portfolio',
-      tag: 'Debugging story',
-      summary:
-        'A breakdown of how I used React and Next.js to build this portfolio while learning the ecosystem in public.',
+      id: 'debugging-portfolio',
+      title: 'Building This Portfolio in Public',
+      date: '2025',
+      category: 'Dev Notes',
+      excerpt: 'A breakdown of decisions, trade-offs, and the constraints that shaped this site. React, Next.js, and learning the ecosystem by shipping.',
+      tags: ['React', 'Next.js', 'CSS'],
     },
     {
-      id: 2,
-      title: 'From Paramedic to Full Stack Developer',
-      tag: 'Career transition',
-      summary:
-        'How years in emergency medicine shaped the way I think about user experience, reliability, and calm under pressure.',
+      id: 'paramedic-to-developer',
+      title: 'What EMS Taught Me About Building Software',
+      date: '2025',
+      category: 'Perspective',
+      excerpt: 'How years in emergency medicine shaped the way I think about user experience, reliability, and staying calm when things break.',
+      tags: ['Career', 'Process'],
+    },
+    {
+      id: 'energy-based-ux',
+      title: 'Designing for Variable Energy States',
+      date: '2025',
+      category: 'UX',
+      excerpt: 'Notes on building NeuroNibble: why productivity apps fail neurodivergent users and what "compassion-first" actually means in code.',
+      tags: ['React Native', 'UX', 'Accessibility'],
     },
   ];
 
   return (
     <>
       <Navigation />
-      <main
-        style={{
-          minHeight: '100vh',
-          padding: '40px 16px',
-          background: '#020617',
-          color: '#E2E8F0',
-        }}
-      >
-        <section style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Stories</h1>
-          <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>
-            Narrative case studies about projects, learning, and the journey from paramedic to developer.
-          </p>
 
-          <div style={{ display: 'grid', gap: '1.5rem' }}>
-            {stories.map((story) => (
-              <article
-                key={story.id}
-                style={{
-                  borderRadius: '12px',
-                  border: '1px solid #334155',
-                  padding: '1.5rem',
-                  background: '#020617',
-                }}
-              >
-                <h2 style={{ marginBottom: '0.25rem', fontSize: '1.25rem' }}>
-                  {story.title}
-                </h2>
-                <div
-                  style={{
-                    fontSize: '0.85rem',
-                    color: '#9CA3AF',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  {story.tag}
+      <main>
+        <section className="section page-header">
+          <h1>Labs</h1>
+          <p className="page-description">
+            Notes, walkthroughs, and things I'm figuring out. Low-pressure writing about the work.
+          </p>
+        </section>
+
+        <section className="section labs-section">
+          <div className="labs-list">
+            {posts.map((post) => (
+              <article key={post.id} className="labs-entry">
+                <div className="labs-meta">
+                  <span className="labs-date">{post.date}</span>
+                  <span className="labs-category">{post.category}</span>
                 </div>
-                <p style={{ margin: 0 }}>{story.summary}</p>
+
+                <div className="labs-content">
+                  <h2 className="labs-title">{post.title}</h2>
+                  <p className="labs-excerpt">{post.excerpt}</p>
+
+                  <div className="labs-tags">
+                    {post.tags.map((tag) => (
+                      <span key={tag} className="tag">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="labs-action">
+                  <span className="coming-soon">Coming soon</span>
+                </div>
               </article>
             ))}
           </div>
+
+          <div className="labs-cta">
+            <p>More posts in the works. Building in public means shipping before it's perfect.</p>
+          </div>
         </section>
       </main>
+
+      <Footer />
     </>
   );
 }
