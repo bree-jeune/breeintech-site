@@ -27,14 +27,36 @@ export default function ContactPage() {
               </a>
 
               <Link
-                href="https://linkedin.com/in/breejeune"
+                href="https://www.linkedin.com/in/ebonne-young/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-card"
               >
                 <span className="contact-label">LinkedIn</span>
-                <span className="contact-value">linkedin.com/in/breejeune</span>
+                <span className="contact-value">Bree (Ebonne Young)</span>
                 <span className="contact-hint">Let's connect professionally</span>
+              </Link>
+
+              <Link
+                href="https://twitter.com/BreeInTech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <span className="contact-label">X / Twitter</span>
+                <span className="contact-value">@BreeInTech</span>
+                <span className="contact-hint">Thoughts and updates</span>
+              </Link>
+
+              <Link
+                href="https://instagram.com/BreeInTech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <span className="contact-label">Instagram</span>
+                <span className="contact-value">@BreeInTech</span>
+                <span className="contact-hint">Behind the scenes</span>
               </Link>
 
               <Link
@@ -44,7 +66,7 @@ export default function ContactPage() {
                 className="contact-card"
               >
                 <span className="contact-label">GitHub</span>
-                <span className="contact-value">github.com/bree-jeune</span>
+                <span className="contact-value">bree-jeune</span>
                 <span className="contact-hint">See what I'm building</span>
               </Link>
             </div>

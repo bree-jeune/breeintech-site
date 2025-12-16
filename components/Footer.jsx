@@ -5,14 +5,20 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <p className="footer-text">
-          Built by Bree Jeune
+          Built by Bree
         </p>
         <div className="footer-links">
           <Link href="https://github.com/bree-jeune" target="_blank" rel="noopener noreferrer">
             GitHub
           </Link>
-          <Link href="https://linkedin.com/in/breejeune" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.linkedin.com/in/ebonne-young/" target="_blank" rel="noopener noreferrer">
             LinkedIn
+          </Link>
+          <Link href="https://twitter.com/BreeInTech" target="_blank" rel="noopener noreferrer">
+            X
+          </Link>
+          <Link href="https://instagram.com/BreeInTech" target="_blank" rel="noopener noreferrer">
+            IG
           </Link>
         </div>
       </div>

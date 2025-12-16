@@ -11,7 +11,6 @@ export default function ProjectsPage() {
       description: 'A React Native task manager that meets users where they are. Energy-based routing, dopamine mechanics, and async body doubling—built for brains that work differently.',
       stack: ['React Native', 'TypeScript', 'Expo'],
       status: 'In Development',
-      featured: true,
       image: {
         src: '/images/neuro_nibble/NeuroNibbleHome.png',
         alt: 'NeuroNibble mobile app home screen',
@@ -95,8 +94,9 @@ export default function ProjectsPage() {
                   <Image
                     src={project.image.src}
                     alt={project.image.alt}
-                    width={600}
-                    height={375}
+                    width={320}
+                    height={200}
+                    style={{ objectFit: 'cover', maxWidth: '100%', height: 'auto' }}
                   />
                 </div>
 

@@ -83,8 +83,14 @@ export default function AboutPage() {
                   <Link href="https://github.com/bree-jeune" target="_blank" rel="noopener noreferrer">
                     GitHub
                   </Link>
-                  <Link href="https://linkedin.com/in/breejeune" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.linkedin.com/in/ebonne-young/" target="_blank" rel="noopener noreferrer">
                     LinkedIn
+                  </Link>
+                  <Link href="https://twitter.com/BreeInTech" target="_blank" rel="noopener noreferrer">
+                    X / Twitter
+                  </Link>
+                  <Link href="https://instagram.com/BreeInTech" target="_blank" rel="noopener noreferrer">
+                    Instagram
                   </Link>
                   <Link href="mailto:connect@breeintech.com">
                     Email
