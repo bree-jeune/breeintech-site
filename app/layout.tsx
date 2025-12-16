@@ -3,9 +3,15 @@ import './globals.css';
 import type { ReactNode } from 'react';
 
 export const metadata = {
-  title: 'BreeInTech - System Reboot',
-  description:
-    'Full Stack Web + Mobile Developer | Building accessible, user friendly applications and digital tools',
+  title: 'Bree — Developer',
+  description: 'Full Stack Developer. I build thoughtful systems at the intersection of real-world pressure, technology, and care.',
+  keywords: ['developer', 'full stack', 'web development', 'mobile development', 'React', 'Next.js'],
+  authors: [{ name: 'Bree' }],
+  openGraph: {
+    title: 'Bree — Developer',
+    description: 'Full Stack Developer. I build thoughtful systems at the intersection of real-world pressure, technology, and care.',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
@@ -15,9 +21,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <title>Bree|Portfolio</title>
-      </head>
       <body>
         {children}
         <SpeedInsights />

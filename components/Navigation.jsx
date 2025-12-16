@@ -5,77 +5,93 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import './Navigation.css';
 
-
 export default function Navigation() {
   const pathname = usePathname();
   const [glitched, setGlitched] = useState(false);
-  const [promptGlitch, setPromptGlitch] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const glitchInterval = setInterval(() => {
-      setGlitched((prev) => !prev);
-    }, 3000);
+      setGlitched(true);
+      setTimeout(() => setGlitched(false), 150);
+    }, 5000);
 
     return () => clearInterval(glitchInterval);
   }, []);
 
-  const handleMouseEnter = () => {
-    setPromptGlitch(true);
-    setTimeout(() => setPromptGlitch(false), 300);
-  };
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
-  const handleMouseLeave = () => {
-    setPromptGlitch(false);
-  };
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
-  const isActive = (path) => (pathname === path ? 'active' : '');
+  const isActive = (path) => pathname === path;
 
-  const brandText = glitched ? '> BR33|NTECH' : 'BREE_IN_TECH';
-  const promptText = promptGlitch ? '>> ' : '> ';
-
-
-
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/projects', label: 'Work' },
+    { href: '/stories', label: 'Labs' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
   return (
-    <nav className="navigation">
-      <div
-        className="brand-logo"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <span className={`prompt ${promptGlitch ? 'glitch-flash' : ''}`}>
-          {promptText}
+    <nav className="navigation" role="navigation" aria-label="Main navigation">
+      <Link href="/" className="brand">
+        <span className={`brand-text ${glitched ? 'glitch' : ''}`}>
+          bree<span className="brand-accent">.</span>
         </span>
-        <span className={`brand-text ${glitched ? 'glitched' : ''}`}>
-          {brandText}
-        </span>
-      </div>
+      </Link>
 
       <button
-        className="hamburger"
+        className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
         type="button"
-        aria-label="Toggle navigation"
+        aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={mobileMenuOpen}
+        aria-controls="nav-menu"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
-        ☰
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
       </button>
 
-      <div className="nav-links">
-        <Link href="/" className={isActive('/')}>
-          /~
-        </Link>
-        <Link href="/projects" className={isActive('/projects')}>
-          /Projects
-        </Link>
-        <Link href="/stories" className={isActive('/stories')}>
-          /BLOG
-        </Link>
-        <Link href="/contact" className={isActive('/contact')}>
-          /CONTACT
-        </Link>
-        <Link href="/about" className={isActive('/about')}>
-          /ABOUT
-        </Link>
+      <div
+        id="nav-menu"
+        className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}
+        role="menubar"
+      >
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+            role="menuitem"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
+
+      {mobileMenuOpen && (
+        <div
+          className="nav-overlay"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
     </nav>
   );
 }
