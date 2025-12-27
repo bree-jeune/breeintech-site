@@ -1,5 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
+import { getAllPosts } from '@/lib/posts';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,28 +9,11 @@ export const metadata: Metadata = {
   description: 'Notes, walkthroughs, and things I am figuring out. Low-pressure writing about the work.',
 };
 
-interface Post {
-  id: string;
-  title: string;
-  date: string;
-  category: string;
-  excerpt: string;
-  tags: string[];
-}
-
-const posts: Post[] = [
-  {
-    id: 'debugging-portfolio',
-    title: 'Building This Portfolio in Public',
-    date: '2025',
-    category: 'Dev Notes',
-    excerpt: 'A breakdown of decisions, trade-offs, and the constraints that shaped this site. React, Next.js, and learning the ecosystem by shipping.',
-    tags: ['React', 'Next.js', 'CSS'],
-  },
+// Placeholder posts for upcoming content
+const upcomingPosts = [
   {
     id: 'paramedic-to-developer',
     title: 'What EMS Taught Me About Building Software',
-    date: '2025',
     category: 'Perspective',
     excerpt: 'How years in emergency medicine shaped the way I think about user experience, reliability, and staying calm when things break.',
     tags: ['Career', 'Process'],
@@ -36,7 +21,6 @@ const posts: Post[] = [
   {
     id: 'energy-based-ux',
     title: 'Designing for Variable Energy States',
-    date: '2025',
     category: 'UX',
     excerpt: 'Notes on building NeuroNibble: why productivity apps fail neurodivergent users and what "compassion-first" actually means in code.',
     tags: ['React Native', 'UX', 'Accessibility'],
@@ -44,6 +28,8 @@ const posts: Post[] = [
 ];
 
 export default function LabsPage() {
+  const publishedPosts = getAllPosts();
+
   return (
     <>
       <Navigation />
@@ -58,10 +44,47 @@ export default function LabsPage() {
 
         <section className="section labs-section">
           <div className="labs-list">
-            {posts.map((post) => (
-              <article key={post.id} className="labs-entry">
+            {/* Published posts */}
+            {publishedPosts.map((post) => {
+              const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+              });
+
+              return (
+                <Link
+                  key={post.slug}
+                  href={`/stories/${post.slug}`}
+                  className="labs-entry labs-entry--clickable"
+                >
+                  <div className="labs-meta">
+                    <span className="labs-date">{formattedDate}</span>
+                    <span className="labs-category">{post.category}</span>
+                  </div>
+
+                  <div className="labs-content">
+                    <h2 className="labs-title">{post.title}</h2>
+                    <p className="labs-excerpt">{post.excerpt}</p>
+
+                    <div className="labs-tags">
+                      {post.tags.map((tag) => (
+                        <span key={tag} className="tag">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="labs-action">
+                    <span className="btn btn--sm btn--ghost">Read &rarr;</span>
+                  </div>
+                </Link>
+              );
+            })}
+
+            {/* Upcoming posts */}
+            {upcomingPosts.map((post) => (
+              <article key={post.id} className="labs-entry labs-entry--upcoming">
                 <div className="labs-meta">
-                  <span className="labs-date">{post.date}</span>
+                  <span className="labs-date">Soon</span>
                   <span className="labs-category">{post.category}</span>
                 </div>
 

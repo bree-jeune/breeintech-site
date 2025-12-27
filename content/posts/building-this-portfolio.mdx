@@ -1,0 +1,70 @@
+---
+title: "Building This Portfolio in Public"
+date: "2025-01-15"
+category: "Dev Notes"
+excerpt: "A breakdown of decisions, trade-offs, and the constraints that shaped this site. React, Next.js, and learning the ecosystem by shipping."
+tags: ["React", "Next.js", "CSS"]
+---
+
+# Building This Portfolio in Public
+
+When I decided to rebuild my portfolio, I had a choice: spend months perfecting it in private, or ship something functional and iterate in public. I chose the latter.
+
+## The Stack Decision
+
+I went with **Next.js 16** and **React 19**. Not because they're the latest and greatest, but because:
+
+1. **App Router** gives me the file-based routing I wanted
+2. **Server Components** reduce client-side JavaScript
+3. **Image optimization** is built-in
+4. **Vercel deployment** is seamless
+
+For styling, I deliberately avoided component libraries. Instead, I built a custom design system with CSS custom properties. It's more work upfront, but I understand every line.
+
+## What I Learned
+
+### CSS Custom Properties Are Powerful
+
+My entire color palette, spacing scale, and typography are defined in `:root`:
+
+```css
+:root {
+  --color-accent: #C46A2B;
+  --space-md: 1rem;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+```
+
+Changing the accent color? One line. Adjusting spacing? One variable.
+
+### TypeScript Catches Real Bugs
+
+Converting from JavaScript to TypeScript found several issues:
+- Props that could be undefined
+- Event handlers with wrong types
+- Missing return types on functions
+
+The investment pays off.
+
+### Ship, Then Improve
+
+This site isn't perfect. The Labs section was "coming soon" for weeks. Some animations could be smoother. But it's live, and I'm iterating.
+
+## Trade-offs I Made
+
+| Decision | Trade-off |
+|----------|-----------|
+| Custom CSS over Tailwind | More control, more maintenance |
+| No CMS | Faster development, manual content updates |
+| Minimal dependencies | Smaller bundle, more custom code |
+
+## What's Next
+
+- Individual project case studies
+- More Labs posts
+- Contact form integration
+- Performance optimization
+
+---
+
+*Building in public means showing the work, not just the result. This post is part of that process.*
