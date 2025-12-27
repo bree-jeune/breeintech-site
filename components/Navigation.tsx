@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { NAV_LINKS, ANIMATION } from '@/lib/constants';
 import './Navigation.css';
 
 export default function Navigation() {
@@ -13,8 +14,8 @@ export default function Navigation() {
   useEffect(() => {
     const glitchInterval = setInterval(() => {
       setGlitched(true);
-      setTimeout(() => setGlitched(false), 150);
-    }, 5000);
+      setTimeout(() => setGlitched(false), ANIMATION.glitchDuration);
+    }, ANIMATION.glitchInterval);
 
     return () => clearInterval(glitchInterval);
   }, []);
@@ -36,15 +37,15 @@ export default function Navigation() {
     };
   }, [mobileMenuOpen]);
 
-  const isActive = (path) => pathname === path;
+  const isActive = useCallback((path: string) => pathname === path, [pathname]);
 
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/projects', label: 'Work' },
-    { href: '/stories', label: 'Labs' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
-  ];
+  const toggleMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setMobileMenuOpen(false);
+  }, []);
 
   return (
     <nav className="navigation" role="navigation" aria-label="Main navigation">
@@ -60,11 +61,11 @@ export default function Navigation() {
         aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={mobileMenuOpen}
         aria-controls="nav-menu"
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        onClick={toggleMenu}
       >
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
+        <span className="hamburger-line" />
+        <span className="hamburger-line" />
+        <span className="hamburger-line" />
       </button>
 
       <div
@@ -72,13 +73,13 @@ export default function Navigation() {
         className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}
         role="menubar"
       >
-        {navLinks.map((link) => (
+        {NAV_LINKS.map((link) => (
           <Link
             key={link.href}
             href={link.href}
             className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
             role="menuitem"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={closeMenu}
           >
             {link.label}
           </Link>
@@ -88,7 +89,7 @@ export default function Navigation() {
       {mobileMenuOpen && (
         <div
           className="nav-overlay"
-          onClick={() => setMobileMenuOpen(false)}
+          onClick={closeMenu}
           aria-hidden="true"
         />
       )}

@@ -9,17 +9,17 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
-      <main>
+      <main id="main-content">
         {/* Hero Section */}
         <section className="hero">
           <div className="hero-content">
-            <p className="hero-label label">Full Stack Developer</p>
+            <p className="hero-label label">Frontend Developer</p>
             <h1 className="hero-title">
-              I build systems that work<br />
+              I build software that works<br />
               <span className="text-accent">under pressure.</span>
             </h1>
             <p className="hero-description">
-              Less noise. More signal. Thoughtful code for real-world problems.
+              Less noise. More signal. Practical code for real-world problems.
             </p>
             <div className="hero-actions">
               <Link href="/projects" className="btn btn--primary">
@@ -42,7 +42,7 @@ export default function HomePage() {
             <div className="intro-block">
               <h3 className="intro-title">What I Do</h3>
               <p className="intro-text">
-                Full stack web and mobile development. I care about outcomes, not vibes.
+                Frontend web development. I care about outcomes, not vibes.
                 Every project starts with understanding the real problem.
               </p>
             </div>
@@ -56,8 +56,8 @@ export default function HomePage() {
             <div className="intro-block">
               <h3 className="intro-title">Background</h3>
               <p className="intro-text">
-                Former paramedic turned developer. I know what it means to build things
-                that need to work when it matters.
+                Experience in healthcare, education, and systems design. I know what it means
+                to build things that need to work when it matters.
               </p>
             </div>
           </div>

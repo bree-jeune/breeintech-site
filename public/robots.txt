@@ -1,0 +1,6 @@
+# robots.txt for breeintech.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://breeintech.com/sitemap.xml

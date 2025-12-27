@@ -1,10 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-export default function Typewriter({ text, speed = 50, onComplete }) {
+interface TypewriterProps {
+  text: string;
+  speed?: number;
+  onComplete?: () => void;
+}
+
+export default function Typewriter({ text, speed = 50, onComplete }: TypewriterProps) {
   const [displayText, setDisplayText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
+
+  // Use ref for callback to avoid dependency issues
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
     setDisplayText('');
@@ -18,12 +28,12 @@ export default function Typewriter({ text, speed = 50, onComplete }) {
       } else {
         clearInterval(interval);
         setIsComplete(true);
-        onComplete?.();
+        onCompleteRef.current?.();
       }
     }, speed);
 
     return () => clearInterval(interval);
-  }, [text, speed, onComplete]);
+  }, [text, speed]);
 
   return (
     <span className="typewriter">
