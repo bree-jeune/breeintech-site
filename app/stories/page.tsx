@@ -1,39 +1,54 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Labs',
+  description: 'Notes, walkthroughs, and things I am figuring out. Low-pressure writing about the work.',
+};
+
+interface Post {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  tags: string[];
+}
+
+const posts: Post[] = [
+  {
+    id: 'debugging-portfolio',
+    title: 'Building This Portfolio in Public',
+    date: '2025',
+    category: 'Dev Notes',
+    excerpt: 'A breakdown of decisions, trade-offs, and the constraints that shaped this site. React, Next.js, and learning the ecosystem by shipping.',
+    tags: ['React', 'Next.js', 'CSS'],
+  },
+  {
+    id: 'paramedic-to-developer',
+    title: 'What EMS Taught Me About Building Software',
+    date: '2025',
+    category: 'Perspective',
+    excerpt: 'How years in emergency medicine shaped the way I think about user experience, reliability, and staying calm when things break.',
+    tags: ['Career', 'Process'],
+  },
+  {
+    id: 'energy-based-ux',
+    title: 'Designing for Variable Energy States',
+    date: '2025',
+    category: 'UX',
+    excerpt: 'Notes on building NeuroNibble: why productivity apps fail neurodivergent users and what "compassion-first" actually means in code.',
+    tags: ['React Native', 'UX', 'Accessibility'],
+  },
+];
 
 export default function LabsPage() {
-  const posts = [
-    {
-      id: 'debugging-portfolio',
-      title: 'Building This Portfolio in Public',
-      date: '2025',
-      category: 'Dev Notes',
-      excerpt: 'A breakdown of decisions, trade-offs, and the constraints that shaped this site. React, Next.js, and learning the ecosystem by shipping.',
-      tags: ['React', 'Next.js', 'CSS'],
-    },
-    {
-      id: 'paramedic-to-developer',
-      title: 'What EMS Taught Me About Building Software',
-      date: '2025',
-      category: 'Perspective',
-      excerpt: 'How years in emergency medicine shaped the way I think about user experience, reliability, and staying calm when things break.',
-      tags: ['Career', 'Process'],
-    },
-    {
-      id: 'energy-based-ux',
-      title: 'Designing for Variable Energy States',
-      date: '2025',
-      category: 'UX',
-      excerpt: 'Notes on building NeuroNibble: why productivity apps fail neurodivergent users and what "compassion-first" actually means in code.',
-      tags: ['React Native', 'UX', 'Accessibility'],
-    },
-  ];
-
   return (
     <>
       <Navigation />
 
-      <main>
+      <main id="main-content">
         <section className="section page-header">
           <h1>Labs</h1>
           <p className="page-description">

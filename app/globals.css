@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ==========================================================================
    BreeInTech Design System
-   "Smart. Grounded. Built by someone who's been in the mess."
    ========================================================================== */
 
 :root {
@@ -17,7 +15,7 @@
   --color-border: #2D3139;
   --color-border-subtle: #23262D;
 
-  /* Accent - Burnt Amber/Rust (resilience, grit, lived experience) */
+  /* Accent - Burnt Amber/Rust */
   --color-accent: #C46A2B;
   --color-accent-hover: #D4793A;
   --color-accent-muted: rgba(196, 106, 43, 0.15);
@@ -425,6 +423,10 @@ footer {
   color: var(--color-text-muted);
 }
 
+.terminal-header-spacer {
+  width: 52px;
+}
+
 .terminal-body {
   padding: var(--space-lg);
   min-height: 200px;
@@ -666,6 +668,94 @@ footer {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Skip Link - Accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  z-index: 1000;
+  transition: top var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Social Icons
+   ========================================================================== */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.social-link:hover {
+  color: var(--color-accent);
+}
+
+.social-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.social-label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+/* ==========================================================================
+   Terminal Output (moved from inline styles)
+   ========================================================================== */
+
+.terminal-output-content {
+  margin-top: var(--space-md);
+}
+
+.terminal-output-title {
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.terminal-output-description {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  font-size: 0.9375rem;
+}
+
+.terminal-output-tags {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 /* ==========================================================================
@@ -973,6 +1063,14 @@ footer {
 
 .project-highlights li:last-child {
   margin-bottom: 0;
+}
+
+.project-links {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-subtle);
 }
 
 @media (max-width: 868px) {

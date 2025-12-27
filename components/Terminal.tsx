@@ -1,10 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Typewriter from './Typewriter';
+import { ANIMATION } from '@/lib/constants';
 
 export default function Terminal() {
   const [showContent, setShowContent] = useState(false);
+
+  const handleTypewriterComplete = useCallback(() => {
+    setShowContent(true);
+  }, []);
 
   return (
     <div className="terminal">
@@ -15,7 +20,7 @@ export default function Terminal() {
           <span className="terminal-dot terminal-dot--green" />
         </div>
         <span className="terminal-title">~/bree/init.sh</span>
-        <div style={{ width: '52px' }} />
+        <div className="terminal-header-spacer" aria-hidden="true" />
       </div>
 
       <div className="terminal-body">
@@ -23,26 +28,26 @@ export default function Terminal() {
           <span className="terminal-prompt">
             <Typewriter
               text="whoami"
-              speed={80}
-              onComplete={() => setShowContent(true)}
+              speed={ANIMATION.typewriterSpeed}
+              onComplete={handleTypewriterComplete}
             />
           </span>
         </div>
 
         {showContent && (
-          <div className="terminal-output" style={{ marginTop: 'var(--space-md)' }}>
-            <p style={{ color: 'var(--color-text)', marginBottom: 'var(--space-sm)' }}>
-              Full Stack Developer
+          <div className="terminal-output terminal-output-content">
+            <p className="terminal-output-title">
+              Frontend Developer
             </p>
-            <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--space-md)', fontSize: '0.9375rem' }}>
-              I build thoughtful systems at the intersection of real-world pressure, technology, and care.
+            <p className="terminal-output-description">
+              I build practical software with attention to structure, clarity, and real-world use.
             </p>
-            <div style={{ display: 'flex', gap: 'var(--space-sm)', flexWrap: 'wrap' }}>
+            <div className="terminal-output-tags">
+              <span className="tag">JavaScript</span>
               <span className="tag">React</span>
               <span className="tag">Next.js</span>
-              <span className="tag">React Native</span>
               <span className="tag">TypeScript</span>
-              <span className="tag">Node.js</span>
+              <span className="tag">Chrome Extensions</span>
             </div>
           </div>
         )}
