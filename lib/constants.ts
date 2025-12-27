@@ -41,6 +41,11 @@ export const SOCIAL_LINKS = {
     label: 'Email',
     handle: 'connect@breeintech.com',
   },
+  codepen: {
+    url: 'https://codepen.io/BreeInTech',
+    label: 'CodePen',
+    handle: 'BreeInTech',
+  },
 } as const;
 
 // ==========================================================================
