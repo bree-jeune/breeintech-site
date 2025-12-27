@@ -21,8 +21,7 @@ export default function ContactForm() {
     const formData = new FormData(form);
 
     try {
-      // Using Formspree - replace YOUR_FORM_ID with actual ID when ready
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/xaqyovgv', {
         method: 'POST',
         body: formData,
         headers: {
