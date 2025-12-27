@@ -36,8 +36,8 @@ const projects: Project[] = [
     stack: ['React', 'JavaScript', 'CSS', 'Vercel'],
     status: 'Live',
     image: {
-      src: 'https://res.cloudinary.com/dkdxt6f6x/image/upload/v1766819263/orbit1_dayfzv.png',
-      alt: 'Orbit web application interface',
+      src: 'https://res.cloudinary.com/dkdxt6f6x/image/upload/v1766835938/ChatGPT_Image_Dec_22_2025_at_04_34_34_AM_giprjk.png',
+      alt: 'Orbit logo',
     },
     highlights: [
       'Full web app version of the Chrome extension',
@@ -57,8 +57,8 @@ const projects: Project[] = [
     stack: ['JavaScript', 'Chrome Extension API', 'HTML', 'CSS'],
     status: 'Shipped',
     image: {
-      src: 'https://res.cloudinary.com/dkdxt6f6x/image/upload/v1766819263/orbit4_pp2emp.png',
-      alt: 'Orbit browser extension interface',
+      src: 'https://res.cloudinary.com/dkdxt6f6x/image/upload/v1766835938/ChatGPT_Image_Dec_22_2025_at_04_34_34_AM_giprjk.png',
+      alt: 'Orbit logo',
     },
     highlights: [
       'Published to Chrome Web Store (pending review)',
