@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-/* ==========================================================================
+/* 
    BreeInTech Design System
-   ========================================================================== */
+    */
 
 :root {
   /* Color Palette - Deep neutrals + disciplined accent */
@@ -58,9 +58,9 @@
   --shadow-glow: 0 0 20px rgba(196, 106, 43, 0.2);
 }
 
-/* ==========================================================================
+/* 
    Base Styles
-   ========================================================================== */
+    */
 
 * {
   box-sizing: border-box;
@@ -83,9 +83,9 @@ body {
   min-height: 100vh;
 }
 
-/* ==========================================================================
+/* 
    Typography
-   ========================================================================== */
+    */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
@@ -170,9 +170,9 @@ pre {
   color: var(--color-text-muted);
 }
 
-/* ==========================================================================
+/* 
    Layout
-   ========================================================================== */
+    */
 
 .container {
   width: 100%;
@@ -200,9 +200,9 @@ pre {
   font-size: 1rem;
 }
 
-/* ==========================================================================
+/* 
    Buttons
-   ========================================================================== */
+    */
 
 .btn {
   display: inline-flex;
@@ -257,9 +257,9 @@ pre {
   font-size: 0.8125rem;
 }
 
-/* ==========================================================================
+/* 
    Cards
-   ========================================================================== */
+    */
 
 .card {
   background-color: var(--color-bg-elevated);
@@ -295,9 +295,9 @@ pre {
   line-height: 1.6;
 }
 
-/* ==========================================================================
+/* 
    Tags & Badges
-   ========================================================================== */
+    */
 
 .tag {
   display: inline-flex;
@@ -346,9 +346,9 @@ pre {
   color: var(--color-text-muted);
 }
 
-/* ==========================================================================
+/* 
    Navigation (base styles, component has its own CSS)
-   ========================================================================== */
+    */
 
 nav {
   display: flex;
@@ -363,9 +363,9 @@ nav {
   z-index: 100;
 }
 
-/* ==========================================================================
+/* 
    Footer
-   ========================================================================== */
+    */
 
 footer {
   background-color: var(--color-bg);
@@ -380,9 +380,9 @@ footer {
   color: var(--color-text-muted);
 }
 
-/* ==========================================================================
+/* 
    Terminal Component
-   ========================================================================== */
+    */
 
 .terminal {
   background-color: var(--color-bg-elevated);
@@ -461,9 +461,9 @@ footer {
   51%, 100% { opacity: 0; }
 }
 
-/* ==========================================================================
+/* 
    Project Cards
-   ========================================================================== */
+    */
 
 .project-grid {
   display: grid;
@@ -532,9 +532,9 @@ footer {
   border-top: 1px solid var(--color-border-subtle);
 }
 
-/* ==========================================================================
+/* 
    Labs/Blog Cards
-   ========================================================================== */
+    */
 
 .labs-grid {
   display: grid;
@@ -585,9 +585,9 @@ footer {
   gap: var(--space-sm);
 }
 
-/* ==========================================================================
+/* 
    Timeline (About page)
-   ========================================================================== */
+    */
 
 .timeline {
   position: relative;
@@ -647,9 +647,9 @@ footer {
   font-size: 0.9375rem;
 }
 
-/* ==========================================================================
+/* 
    Utilities
-   ========================================================================== */
+    */
 
 .text-accent { color: var(--color-accent); }
 .text-muted { color: var(--color-text-muted); }
@@ -693,9 +693,9 @@ footer {
   outline-offset: 2px;
 }
 
-/* ==========================================================================
+/* 
    Social Icons
-   ========================================================================== */
+    */
 
 .social-icons {
   display: flex;
@@ -733,9 +733,9 @@ footer {
   font-size: 0.8125rem;
 }
 
-/* ==========================================================================
-   Terminal Output (moved from inline styles)
-   ========================================================================== */
+/* 
+   Terminal Output 
+    */
 
 .terminal-output-content {
   margin-top: var(--space-md);
@@ -758,9 +758,9 @@ footer {
   flex-wrap: wrap;
 }
 
-/* ==========================================================================
+/* 
    Responsive
-   ========================================================================== */
+    */
 
 @media (max-width: 768px) {
   .section {
@@ -796,9 +796,9 @@ footer {
   }
 }
 
-/* ==========================================================================
+/* 
    Home Page - Hero
-   ========================================================================== */
+    */
 
 .hero {
   min-height: calc(100vh - 65px);
@@ -929,9 +929,9 @@ footer {
   }
 }
 
-/* ==========================================================================
+/* 
    Page Headers (shared)
-   ========================================================================== */
+    */
 
 .page-header {
   padding-bottom: var(--space-xl);
@@ -948,9 +948,9 @@ footer {
   margin: 0;
 }
 
-/* ==========================================================================
+/* 
    Projects Page
-   ========================================================================== */
+    */
 
 .projects-section {
   padding-top: 0;
@@ -1094,9 +1094,9 @@ footer {
   }
 }
 
-/* ==========================================================================
+/* 
    Labs Page
-   ========================================================================== */
+    */
 
 .labs-section {
   padding-top: 0;
@@ -1212,9 +1212,9 @@ footer {
   }
 }
 
-/* ==========================================================================
+/* 
    About Page
-   ========================================================================== */
+    */
 
 .about-hero {
   padding-bottom: var(--space-xl);
@@ -1364,9 +1364,9 @@ footer {
   }
 }
 
-/* ==========================================================================
+/* 
    Contact Page
-   ========================================================================== */
+    */
 
 .contact-section {
   min-height: calc(100vh - 200px);
@@ -1653,9 +1653,9 @@ footer {
   }
 }
 
-/* ==========================================================================
+/* 
    Site Footer
-   ========================================================================== */
+    */
 
 .site-footer {
   background-color: var(--color-bg);
@@ -1696,9 +1696,9 @@ footer {
   }
 }
 
-/* ==========================================================================
+/* 
    404 Not Found Page
-   ========================================================================== */
+   */
 
 .not-found-page {
   min-height: calc(100vh - 200px);
@@ -1741,9 +1741,9 @@ footer {
   flex-wrap: wrap;
 }
 
-/* ==========================================================================
+/* 
    Labs Entry Variants
-   ========================================================================== */
+  */
 
 .labs-entry--clickable {
   text-decoration: none;
@@ -1759,9 +1759,9 @@ footer {
   opacity: 0.7;
 }
 
-/* ==========================================================================
-   Labs Post (Individual Article)
-   ========================================================================== */
+/* 
+   Labs Post (Inividual Article)
+  */
 
 .labs-post {
   max-width: 720px;
@@ -1930,205 +1930,4 @@ footer {
 .labs-post-content em {
   font-style: italic;
   color: var(--color-text-muted);
-}
-
-/* ==========================================================================
-   Case Study Styles
-   ========================================================================== */
-
-.case-study {
-  padding-top: var(--space-3xl);
-}
-
-.case-study-back {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  color: var(--color-text-muted);
-  font-size: 0.875rem;
-  margin-bottom: var(--space-xl);
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.case-study-back:hover {
-  color: var(--color-accent);
-}
-
-.case-study-hero {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-}
-
-.case-study-hero-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-2xl);
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .case-study-hero-content {
-    grid-template-columns: 1.5fr 1fr;
-  }
-}
-
-.case-study-hero-text h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin: var(--space-md) 0;
-  line-height: 1.2;
-}
-
-@media (min-width: 768px) {
-  .case-study-hero-text h1 {
-    font-size: 3rem;
-  }
-}
-
-.case-study-tagline {
-  font-size: 1.25rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-lg);
-}
-
-.case-study-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
-}
-
-.case-study-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-}
-
-.case-study-hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--color-bg-surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  border: 1px solid var(--color-border-subtle);
-}
-
-.case-study-content {
-  max-width: 800px;
-  margin: var(--space-4xl) auto;
-  padding: 0 var(--space-lg);
-}
-
-.case-study-section {
-  margin-bottom: var(--space-3xl);
-}
-
-.case-study-section h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-sm);
-  border-bottom: 2px solid var(--color-accent-muted);
-}
-
-.case-study-section h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-md);
-}
-
-.case-study-section p {
-  font-size: 1.0625rem;
-  line-height: 1.75;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-md);
-}
-
-.case-study-features,
-.case-study-learnings {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.case-study-features li,
-.case-study-learnings li {
-  position: relative;
-  padding-left: var(--space-xl);
-  margin-bottom: var(--space-md);
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-}
-
-.case-study-features li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--color-success);
-  font-weight: 600;
-}
-
-.case-study-learnings li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-.case-study-tech-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-top: var(--space-lg);
-}
-
-.tag--lg {
-  font-size: 0.9375rem;
-  padding: var(--space-sm) var(--space-md);
-}
-
-.case-study-screenshots {
-  display: grid;
-  gap: var(--space-lg);
-}
-
-.case-study-screenshot {
-  background: var(--color-bg-surface);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--color-border-subtle);
-}
-
-.case-study-cta {
-  text-align: center;
-  padding: var(--space-3xl) var(--space-lg);
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-border-subtle);
-  margin-top: var(--space-4xl);
-}
-
-.case-study-cta p {
-  font-size: 1.25rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-lg);
-}
-
-/* Secondary button variant */
-.btn--secondary {
-  background-color: var(--color-bg-surface);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-}
-
-.btn--secondary:hover {
-  background-color: var(--color-bg-elevated);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
 }

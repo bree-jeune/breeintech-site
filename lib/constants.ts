@@ -1,6 +1,6 @@
-// ==========================================================================
+// 
 // Site Constants
-// ==========================================================================
+// 
 
 export const SITE_CONFIG = {
   name: 'Bree',
@@ -11,9 +11,9 @@ export const SITE_CONFIG = {
   location: 'Las Vegas',
 };
 
-// ==========================================================================
+// 
 // Social Links
-// ==========================================================================
+// 
 
 export const SOCIAL_LINKS = {
   github: {
@@ -41,16 +41,11 @@ export const SOCIAL_LINKS = {
     label: 'Email',
     handle: 'connect@breeintech.com',
   },
-  codepen: {
-    url: 'https://codepen.io/BreeInTech',
-    label: 'CodePen',
-    handle: 'BreeInTech',
-  },
 } as const;
 
-// ==========================================================================
+// 
 // Navigation
-// ==========================================================================
+// 
 
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -60,9 +55,9 @@ export const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ] as const;
 
-// ==========================================================================
+// 
 // Skills
-// ==========================================================================
+// 
 
 export const SKILLS = {
   frontend: ['JavaScript', 'React', 'Next.js', 'TypeScript', 'HTML', 'CSS', 'Tailwind CSS'],
@@ -70,9 +65,9 @@ export const SKILLS = {
   tools: ['Git', 'Chrome Extensions', 'Figma', 'VS Code'],
 } as const;
 
-// ==========================================================================
+// 
 // Animation Timings (in ms)
-// ==========================================================================
+// 
 
 export const ANIMATION = {
   glitchInterval: 5000,
