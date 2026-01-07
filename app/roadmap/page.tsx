@@ -123,7 +123,7 @@ const roadmapData = {
         id: 'wr-3',
         title: 'Tutorial Series',
         status: 'in_progress',
-        description: 'Creating step-by-step tutorials on topics I've mastered.',
+        description: 'Creating step-by-step tutorials on topics I\'ve mastered.',
         tools: ['Technical Writing', 'Code Examples', 'Diagrams'],
         proof: null,
       },
