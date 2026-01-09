@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Frontend developer who builds practical software with attention to structure, clarity, and real-world use.',
+  description: 'Full Stack developer who builds practical software with attention to structure, clarity, and real-world use.',
 };
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
           <div className="about-intro">
             <h1>About Me</h1>
             <p className="about-lead">
-              Frontend developer who builds practical software with attention to structure,
+              Full Stack developer who builds practical software with attention to structure,
               clarity, and real-world use.
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function AboutPage() {
 
               <h2>Looking For</h2>
               <p>
-                I'm looking for a frontend developer role where I can contribute immediately,
+                I'm looking for a full stack developer role where I can contribute immediately,
                 collaborate with experienced engineers, and continue growing as a developer.
               </p>
             </div>

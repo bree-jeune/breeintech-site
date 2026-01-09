@@ -68,6 +68,7 @@ export default function ContactForm() {
           className="form-input"
           placeholder="Your name"
           disabled={formState.status === 'submitting'}
+          aria-disabled={formState.status === 'submitting'}
         />
       </div>
 
@@ -81,6 +82,7 @@ export default function ContactForm() {
           className="form-input"
           placeholder="your@email.com"
           disabled={formState.status === 'submitting'}
+          aria-disabled={formState.status === 'submitting'}
         />
       </div>
 
@@ -94,11 +96,12 @@ export default function ContactForm() {
           className="form-input form-textarea"
           placeholder="What's on your mind?"
           disabled={formState.status === 'submitting'}
+          aria-disabled={formState.status === 'submitting'}
         />
       </div>
 
       {formState.status === 'error' && (
-        <div className="form-error">
+        <div className="form-error" role="alert" aria-live="polite">
           {formState.message}
         </div>
       )}

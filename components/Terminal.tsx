@@ -37,7 +37,7 @@ export default function Terminal() {
         {showContent && (
           <div className="terminal-output terminal-output-content">
             <p className="terminal-output-title">
-              Frontend Developer
+              Full Stack Developer
             </p>
             <p className="terminal-output-description">
               I build practical software with attention to structure, clarity, and real-world use.

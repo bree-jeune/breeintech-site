@@ -3,19 +3,33 @@ import './globals.css';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
+import { Inter, JetBrains_Mono } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://breeintech.com'),
   title: {
-    default: 'Bree — Frontend Developer',
+    default: 'Bree — Full Stack Developer',
     template: '%s — Bree',
   },
-  description: 'Frontend Developer. I build practical software with attention to structure, clarity, and real-world use.',
-  keywords: ['frontend developer', 'web development', 'React', 'Next.js', 'JavaScript', 'TypeScript', 'Chrome Extensions'],
+  description: 'Full Stack Developer. I build practical software with attention to structure, clarity, and real-world use.',
+  keywords: ['full stack developer', 'web development', 'React', 'Next.js', 'JavaScript', 'TypeScript', 'Chrome Extensions'],
   authors: [{ name: 'Bree', url: 'https://breeintech.com' }],
   creator: 'Bree',
   openGraph: {
-    title: 'Bree — Frontend Developer',
-    description: 'Frontend Developer. I build practical software with attention to structure, clarity, and real-world use.',
+    title: 'Bree — Full Stack Developer',
+    description: 'Full Stack Developer. I build practical software with attention to structure, clarity, and real-world use.',
     url: 'https://breeintech.com',
     siteName: 'Bree',
     locale: 'en_US',
@@ -23,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bree — Frontend Developer',
-    description: 'Frontend Developer. I build practical software with attention to structure, clarity, and real-world use.',
+    title: 'Bree — Full Stack Developer',
+    description: 'Full Stack Developer. I build practical software with attention to structure, clarity, and real-world use.',
     creator: '@BreeInTech',
   },
   robots: {
@@ -46,15 +60,7 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
         <a href="#main-content" className="skip-link">
           Skip to main content

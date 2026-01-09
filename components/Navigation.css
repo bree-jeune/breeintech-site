@@ -1,79 +1,30 @@
-/* ==========================================================================
-   Navigation Component
-   ========================================================================== */
-
+/* Base Navigation Styles */
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-md) var(--space-lg);
-  background-color: rgba(15, 17, 21, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border-subtle);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
-
-/* ==========================================================================
-   Brand Logo
-   ========================================================================== */
 
 .brand {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text);
   text-decoration: none;
-  letter-spacing: -0.02em;
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.brand:hover {
-  color: var(--color-text);
+  z-index: 50;
 }
 
 .brand-text {
-  position: relative;
-  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
 }
 
 .brand-accent {
   color: var(--color-accent);
 }
-
-/* Subtle glitch effect - restrained, not flashy */
-.brand-text.glitch {
-  animation: subtleGlitch 150ms ease-out;
-}
-
-@keyframes subtleGlitch {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-  25% {
-    transform: translate(-1px, 0);
-    opacity: 0.9;
-  }
-  50% {
-    transform: translate(1px, 0);
-    opacity: 1;
-  }
-  75% {
-    transform: translate(0, 0);
-    opacity: 0.95;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}
-
-/* ==========================================================================
-   Navigation Links
-   ========================================================================== */
 
 .nav-links {
   display: flex;
@@ -81,100 +32,107 @@
   gap: var(--space-xl);
 }
 
+/* Nav Link Styling */
 .nav-link {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  letter-spacing: 0.02em;
   transition: color var(--duration-fast) var(--ease-out);
   position: relative;
+  padding: var(--space-xs) 0;
 }
 
-.nav-link:hover {
-  color: var(--color-text);
-}
-
+.nav-link:hover,
 .nav-link.active {
   color: var(--color-accent);
 }
 
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: var(--color-accent);
+/* Navigation Dropdown Styles */
+.nav-item-dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
-/* ==========================================================================
-   Hamburger Menu Button
-   ========================================================================== */
+.dropdown-arrow {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
 
+.nav-item-dropdown-wrapper:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs);
+  min-width: 140px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+}
+
+.nav-item-dropdown-wrapper:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-dropdown-item:hover {
+  background-color: var(--color-bg-surface);
+  color: var(--color-accent);
+}
+
+.nav-dropdown-item.active {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* Hamburger Menu (Mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  background: transparent;
+  gap: 6px;
+  background: none;
   border: none;
   cursor: pointer;
-  z-index: 110;
+  z-index: 50;
+  padding: var(--space-xs);
 }
 
 .hamburger-line {
-  display: block;
-  width: 20px;
+  width: 24px;
   height: 2px;
   background-color: var(--color-text);
-  border-radius: 1px;
-  transition: all var(--duration-normal) var(--ease-out);
-  transform-origin: center;
+  transition: all 0.3s ease;
 }
 
-.hamburger.active .hamburger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger.active .hamburger-line:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.hamburger.active .hamburger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-.hamburger:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* ==========================================================================
-   Mobile Menu Overlay
-   ========================================================================== */
-
-.nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(15, 17, 21, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: 90;
-}
-
-/* ==========================================================================
-   Responsive - Mobile
-   ========================================================================== */
-
+/* Mobile Adjustments */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -185,49 +143,81 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: min(300px, 80vw);
+    width: 300px;
+    background-color: var(--color-bg-elevated);
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
-    padding: calc(var(--space-4xl) + var(--space-xl)) var(--space-xl) var(--space-xl);
-    background-color: var(--color-bg-elevated);
+    padding: 100px var(--space-xl) var(--space-xl);
+    gap: var(--space-lg);
     border-left: 1px solid var(--color-border);
     transform: translateX(100%);
-    transition: transform var(--duration-normal) var(--ease-out);
-    z-index: 100;
-    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    z-index: 40;
   }
 
   .nav-links.open {
     transform: translateX(0);
+    box-shadow: var(--shadow-xl);
   }
 
   .nav-link {
+    font-size: 1.125rem;
     width: 100%;
-    padding: var(--space-md) 0;
-    font-size: 1rem;
-    border-bottom: 1px solid var(--color-border-subtle);
   }
 
-  .nav-link:last-child {
-    border-bottom: none;
+  .nav-item-dropdown-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
   }
 
-  .nav-link.active::after {
+  .nav-dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding-left: var(--space-lg);
+    width: 100%;
+    display: block;
+    /* Always show in mobile for simplicity or via state */
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .dropdown-arrow {
     display: none;
   }
 
-  .nav-overlay {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--duration-normal) var(--ease-out),
-                visibility var(--duration-normal);
+  .nav-dropdown-item {
+    font-size: 1rem;
+    padding-left: 0;
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
   }
 
-  .nav-links.open + .nav-overlay,
-  .navigation:has(.nav-links.open) .nav-overlay {
-    opacity: 1;
-    visibility: visible;
+  /* Hamburger Animation */
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Overlay */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 30;
   }
 }

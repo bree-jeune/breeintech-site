@@ -13,14 +13,11 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="hero">
           <div className="hero-content">
-            <p className="hero-label label">Frontend Developer</p>
+            <p className="hero-label label">Full Stack Developer</p>
             <h1 className="hero-title">
               I build software that works<br />
               <span className="text-accent">under pressure.</span>
             </h1>
-            <p className="hero-description">
-              Less noise. More signal. Practical code for real-world problems.
-            </p>
             <div className="hero-actions">
               <Link href="/projects" className="btn btn--primary">
                 View Work

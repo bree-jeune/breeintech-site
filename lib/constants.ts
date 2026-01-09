@@ -5,7 +5,7 @@
 export const SITE_CONFIG = {
   name: 'Bree',
   title: 'Bree — Developer',
-  description: 'Frontend Developer. I build practical software with attention to structure, clarity, and real-world use.',
+  description: 'Full Stack Developer. I build practical software with attention to structure, clarity, and real-world use.',
   url: 'https://breeintech.com',
   email: 'connect@breeintech.com',
   location: 'Las Vegas',
@@ -52,8 +52,13 @@ export const NAV_LINKS = [
   { href: '/roadmap', label: 'Roadmap' },
   { href: '/projects', label: 'Work' },
   { href: '/stories', label: 'Labs' },
-  { href: '/profile', label: 'Profile' },
-  { href: '/about', label: 'About' },
+  {
+    href: '/profile',
+    label: 'Profile',
+    children: [
+      { href: '/about', label: 'About' },
+    ]
+  },
   { href: '/contact', label: 'Contact' },
 ] as const;
 
