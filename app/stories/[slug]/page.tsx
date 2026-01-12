@@ -1,6 +1,4 @@
 import { notFound } from 'next/navigation';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import { getPostBySlug, getAllPostSlugs } from '@/lib/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
@@ -44,35 +42,29 @@ export default async function PostPage({ params }: Props) {
   });
 
   return (
-    <>
-      <Navigation />
-
-      <main id="main-content">
-        <article className="section labs-post">
-          <header className="labs-post-header">
-            <Link href="/stories" className="labs-post-back">
-              &larr; Back to Labs
-            </Link>
-            <div className="labs-post-meta">
-              <span className="labs-category">{post.category}</span>
-              <span className="labs-date">{formattedDate}</span>
-            </div>
-            <h1 className="labs-post-title">{post.title}</h1>
-            <p className="labs-post-excerpt">{post.excerpt}</p>
-            <div className="labs-tags">
-              {post.tags.map((tag) => (
-                <span key={tag} className="tag">{tag}</span>
-              ))}
-            </div>
-          </header>
-
-          <div className="labs-post-content">
-            <MDXRemote source={post.content} />
+    <main id="main-content">
+      <article className="section labs-post">
+        <header className="labs-post-header">
+          <Link href="/stories" className="labs-post-back">
+            &larr; Back to Labs
+          </Link>
+          <div className="labs-post-meta">
+            <span className="labs-category">{post.category}</span>
+            <span className="labs-date">{formattedDate}</span>
           </div>
-        </article>
-      </main>
+          <h1 className="labs-post-title">{post.title}</h1>
+          <p className="labs-post-excerpt">{post.excerpt}</p>
+          <div className="labs-tags">
+            {post.tags.map((tag) => (
+              <span key={tag} className="tag">{tag}</span>
+            ))}
+          </div>
+        </header>
 
-      <Footer />
-    </>
+        <div className="labs-post-content">
+          <MDXRemote source={post.content} />
+        </div>
+      </article>
+    </main>
   );
 }

@@ -1,5 +1,3 @@
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import type { Metadata } from 'next';
@@ -31,60 +29,31 @@ export default function LabsPage() {
   const publishedPosts = getAllPosts();
 
   return (
-    <>
-      <Navigation />
+    <main id="main-content">
+      <section className="section page-header">
+        <h1>Labs</h1>
+        <p className="page-description">
+          Notes, walkthroughs, and things I'm figuring out. Low-pressure writing about the work.
+        </p>
+      </section>
 
-      <main id="main-content">
-        <section className="section page-header">
-          <h1>Labs</h1>
-          <p className="page-description">
-            Notes, walkthroughs, and things I'm figuring out. Low-pressure writing about the work.
-          </p>
-        </section>
+      <section className="section labs-section">
+        <div className="labs-list">
+          {/* Published posts */}
+          {publishedPosts.map((post) => {
+            const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+            });
 
-        <section className="section labs-section">
-          <div className="labs-list">
-            {/* Published posts */}
-            {publishedPosts.map((post) => {
-              const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-              });
-
-              return (
-                <Link
-                  key={post.slug}
-                  href={`/stories/${post.slug}`}
-                  className="labs-entry labs-entry--clickable"
-                >
-                  <div className="labs-meta">
-                    <span className="labs-date">{formattedDate}</span>
-                    <span className="labs-category">{post.category}</span>
-                  </div>
-
-                  <div className="labs-content">
-                    <h2 className="labs-title">{post.title}</h2>
-                    <p className="labs-excerpt">{post.excerpt}</p>
-
-                    <div className="labs-tags">
-                      {post.tags.map((tag) => (
-                        <span key={tag} className="tag">{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="labs-action">
-                    <span className="btn btn--sm btn--ghost">Read &rarr;</span>
-                  </div>
-                </Link>
-              );
-            })}
-
-            {/* Upcoming posts */}
-            {upcomingPosts.map((post) => (
-              <article key={post.id} className="labs-entry labs-entry--upcoming">
+            return (
+              <Link
+                key={post.slug}
+                href={`/stories/${post.slug}`}
+                className="labs-entry labs-entry--clickable"
+              >
                 <div className="labs-meta">
-                  <span className="labs-date">Soon</span>
+                  <span className="labs-date">{formattedDate}</span>
                   <span className="labs-category">{post.category}</span>
                 </div>
 
@@ -100,19 +69,42 @@ export default function LabsPage() {
                 </div>
 
                 <div className="labs-action">
-                  <span className="coming-soon">Coming soon</span>
+                  <span className="btn btn--sm btn--ghost">Read &rarr;</span>
                 </div>
-              </article>
-            ))}
-          </div>
+              </Link>
+            );
+          })}
 
-          <div className="labs-cta">
-            <p>More posts in the works. Building in public means shipping before it's perfect.</p>
-          </div>
-        </section>
-      </main>
+          {/* Upcoming posts */}
+          {upcomingPosts.map((post) => (
+            <article key={post.id} className="labs-entry labs-entry--upcoming">
+              <div className="labs-meta">
+                <span className="labs-date">Soon</span>
+                <span className="labs-category">{post.category}</span>
+              </div>
 
-      <Footer />
-    </>
+              <div className="labs-content">
+                <h2 className="labs-title">{post.title}</h2>
+                <p className="labs-excerpt">{post.excerpt}</p>
+
+                <div className="labs-tags">
+                  {post.tags.map((tag) => (
+                    <span key={tag} className="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="labs-action">
+                <span className="coming-soon">Coming soon</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="labs-cta">
+          <p>More posts in the works. Building in public means shipping before it's perfect.</p>
+        </div>
+      </section>
+    </main>
   );
 }

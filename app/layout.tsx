@@ -2,6 +2,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import './globals.css';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 import { Inter, JetBrains_Mono } from 'next/font/google';
 
@@ -65,7 +67,9 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <Navigation />
         {children}
+        <Footer />
         <SpeedInsights />
       </body>
     </html>
