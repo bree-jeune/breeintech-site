@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { roadmapData, type Milestone, type Lane, type MilestoneStatus } from './data'
 
 function StatusBadge({ status }: { status: MilestoneStatus }) {
@@ -121,7 +121,7 @@ function LaneTrack({ lane, activeMilestone, onSelectMilestone }: {
 export default function RoadmapPage() {
   const [activeMilestone, setActiveMilestone] = useState<string | null>(null)
 
-  const lanes = Object.values(roadmapData) as Lane[]
+  const lanes = useMemo(() => Object.values(roadmapData) as Lane[], [])
 
   const getActiveMilestoneData = (): Milestone | null => {
     if (!activeMilestone) return null

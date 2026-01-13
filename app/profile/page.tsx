@@ -131,9 +131,8 @@ export default function ProfilePage() {
             Full Stack Developer
           </p>
           <p className="profile-header__focus">
-            Building software that works <strong>under pressure</strong>.
-            Learning in public means documenting the hard parts: the systems,
-            the security, and the decisions that matter.
+            Security-minded, systems-driven. Learning in public means documenting the hard parts:
+            the architecture decisions, security tradeoffs, and lessons learned.
           </p>
           <div className="profile-header__badges">
             {techStack.map((tech) => (

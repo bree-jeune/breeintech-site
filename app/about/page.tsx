@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react';
-import type { Metadata } from 'next';
 
 const NARRATIVES = {
   thinking: {
@@ -49,7 +48,7 @@ const NARRATIVES = {
     ),
   },
   future: {
-    title: 'Where I’m Going',
+    title: "Where I'm Going",
     subtitle: 'Security-minded mastery.',
     content: (
       <>
@@ -67,7 +66,7 @@ const NARRATIVES = {
     ),
   },
   learning: {
-    title: 'What I’m Learning Now',
+    title: "What I'm Learning Now",
     subtitle: 'Phase 1: Secure Foundations.',
     content: (
       <>
@@ -101,6 +100,9 @@ export default function AboutPage() {
               key={key}
               className={`canvas-region ${activeRegion === key ? 'is-active' : ''}`}
               onClick={() => setActiveRegion(activeRegion === key ? null : key)}
+              aria-expanded={activeRegion === key}
+              aria-controls={`region-content-${key}`}
+              aria-label={`${data.title}: ${data.subtitle}. Click to ${activeRegion === key ? 'close' : 'explore'}.`}
             >
               <div className="region-header">
                 <span className="region-indicator" />
@@ -108,7 +110,12 @@ export default function AboutPage() {
                 <p className="region-subtitle">{data.subtitle}</p>
               </div>
 
-              <div className="region-content">
+              <div
+                className="region-content"
+                id={`region-content-${key}`}
+                role="region"
+                aria-live="polite"
+              >
                 <div className="content-inner">
                   {data.content}
                 </div>

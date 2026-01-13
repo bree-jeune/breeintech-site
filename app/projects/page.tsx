@@ -186,9 +186,7 @@ export default function ProjectsPage() {
             <article key={project.id} className="project-card-custom">
               <div className="project-image-wrapper">
                 {['protomedic', 'bridge', 'neuronibble'].includes(project.id) ? (
-                  <DeviceMockup>
-                    <img src={project.image.src} alt={project.image.alt} />
-                  </DeviceMockup>
+                  <DeviceMockup src={project.image.src} alt={project.image.alt} />
                 ) : (
                   <Image
                     src={project.image.src}
