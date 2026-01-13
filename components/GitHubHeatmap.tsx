@@ -8,8 +8,8 @@ import { SOCIAL_LINKS } from '@/lib/constants';
 // The calendar accepts a 'theme' object or explicit color levels.
 // We'll use explicit levels for predictability with the design system.
 const minimalTheme: ThemeInput = {
-    light: ['#1C1F26', '#49260c', '#854215', '#c46a2b', '#ff8c3a'],
-    dark: ['#1C1F26', '#49260c', '#854215', '#c46a2b', '#ff8c3a'],
+    light: ['#1C1F26', '#5e2f0d', '#8f4817', '#c46a2b', '#ff8c3a'],
+    dark: ['#1C1F26', '#5e2f0d', '#8f4817', '#c46a2b', '#ff8c3a'],
 };
 
 export default function GitHubHeatmap() {
@@ -62,7 +62,7 @@ export default function GitHubHeatmap() {
     }
 
     return (
-        <div className="heatmap-container w-full overflow-hidden">
+        <div className="heatmap-container w-full overflow-hidden" title="GitHub Contributions">
             <ActivityCalendar
                 data={data}
                 theme={minimalTheme}

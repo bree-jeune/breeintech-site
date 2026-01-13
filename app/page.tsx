@@ -35,15 +35,15 @@ export default function HomePage() {
           <div className="intro-block">
             <h3 className="intro-title">What I Do</h3>
             <p className="intro-text">
-              Frontend web development. I care about outcomes, not vibes.
-              Every project starts with understanding the real problem.
+              Practical software development with a focus on security & systems thinking.
+              I build tools that solve real problems.
             </p>
           </div>
           <div className="intro-block">
             <h3 className="intro-title">How I Work</h3>
             <p className="intro-text">
               Clean architecture. Clear communication. I explain complex things simply,
-              but never dumb them down.
+              and document decisions as they happen.
             </p>
           </div>
           <div className="intro-block">

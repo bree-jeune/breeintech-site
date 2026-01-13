@@ -33,7 +33,7 @@ export default function LabsPage() {
       <section className="section page-header">
         <h1>Labs</h1>
         <p className="page-description">
-          Notes, walkthroughs, and things I'm figuring out. Low-pressure writing about the work.
+          Labs are experiments, notes, and thinking-in-progress — not polished products.
         </p>
       </section>
 

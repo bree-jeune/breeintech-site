@@ -117,6 +117,30 @@ export default function RoadmapPage() {
 
   const activeMilestoneData = getActiveMilestoneData()
 
+  // Auto-select first in-progress or completed milestone
+  useEffect(() => {
+    if (activeMilestone) return;
+
+    let firstInProgress: string | null = null;
+    let firstCompleted: string | null = null;
+
+    for (const lane of lanes) {
+      for (const m of lane.milestones) {
+        if (!firstInProgress && m.status === 'in_progress') {
+          firstInProgress = m.id;
+        }
+        if (!firstCompleted && m.status === 'completed') {
+          firstCompleted = m.id;
+        }
+      }
+    }
+
+    const toSelect = firstInProgress || firstCompleted;
+    if (toSelect) {
+      setActiveMilestone(toSelect);
+    }
+  }, [lanes, activeMilestone]);
+
   return (
     <main className="roadmap-page">
       <section className="roadmap-header">
@@ -162,7 +186,7 @@ export default function RoadmapPage() {
           ) : (
             <div className="roadmap-sidebar__empty">
               <span className="roadmap-sidebar__icon">👆</span>
-              <p>Select a milestone to view details</p>
+              <p>Click a milestone to view context, artifacts, and links.</p>
             </div>
           )}
         </aside>

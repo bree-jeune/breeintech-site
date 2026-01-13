@@ -128,11 +128,11 @@ export default function ProfilePage() {
         <div className="profile-header__info">
           <h1 className="profile-header__name">Bree</h1>
           <p className="profile-header__title">
-            Multi-Disciplinary Technologist
+            Full Stack Developer
           </p>
           <p className="profile-header__focus">
-            Building secure, user-focused software while learning cybersecurity in public.
-            Currently deepening full-stack architecture skills and exploring web application security.
+            Security-minded, systems-driven. Learning in public means documenting real work
+            as it happens — decisions, mistakes, and outcomes.
           </p>
           <div className="profile-header__badges">
             {techStack.map((tech) => (
