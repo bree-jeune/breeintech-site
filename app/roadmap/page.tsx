@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { roadmapData, type Milestone, type Lane, type MilestoneStatus } from './data'
 
 function StatusBadge({ status }: { status: MilestoneStatus }) {
@@ -45,8 +45,25 @@ function MilestoneDetail({ milestone }: { milestone: Milestone }) {
         <StatusBadge status={milestone.status} />
       </div>
       <p className="roadmap-detail__description">{milestone.description}</p>
+
+      <div className="roadmap-detail__meta">
+        <div className="roadmap-detail__item">
+          <span className="roadmap-detail__label">Learning Objective</span>
+          <p className="roadmap-detail__value">{milestone.objective}</p>
+        </div>
+        <div className="roadmap-detail__item">
+          <span className="roadmap-detail__label">Expected Artifact</span>
+          <p className="roadmap-detail__value">{milestone.artifact}</p>
+        </div>
+      </div>
+
       <div className="roadmap-detail__tools">
-        <span className="roadmap-detail__label">Tools & Technologies</span>
+        <div className="flex justify-between items-center mb-sm">
+          <span className="roadmap-detail__label">Tools & Technologies</span>
+          {milestone.lastUpdated && (
+            <span className="roadmap-detail__date">Refined {milestone.lastUpdated}</span>
+          )}
+        </div>
         <div className="roadmap-detail__tags">
           {milestone.tools.map((tool) => (
             <span key={tool} className="tag">

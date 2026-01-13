@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import DeviceMockup from '@/components/DeviceMockup';
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -75,13 +76,13 @@ const projects: Project[] = [
     stack: ['React Native', 'TypeScript', 'Expo'],
     status: 'In Development',
     image: {
-      src: 'https://res.cloudinary.com/dkdxt6f6x/image/upload/v1766835714/Gemini_Generated_Image_5ghzuh5ghzuh5ghz_xd4zp5.png',
-      alt: 'NeuroNibble mobile app icon',
+      src: '/images/projects/neuronibble/home.png',
+      alt: 'NeuroNibble home screen showing energy check-ins',
     },
     highlights: [
       'Energy check-ins that adapt task suggestions',
-      'Dopamine vending machine for reward randomization',
-      'Real-time user counter for virtual co-working'
+      'Dopamine mechanics for reward randomization',
+      'Contextualized task management'
     ],
   },
   {
@@ -102,20 +103,20 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 'rigready',
-    name: 'RigReady',
+    id: 'protomedic',
+    name: 'ProtoMedic',
     tagline: 'EMS protocols in your pocket',
     description: 'A native iOS app for EMT and paramedic students to study critical medical information and access protocols in high-pressure field environments.',
     stack: ['Swift', 'SwiftUI', 'Python'],
     status: 'In Development',
     image: {
-      src: '/images/placeholder/placeholder.png',
-      alt: 'RigReady app preview',
+      src: '/images/projects/protomedic/main-menu.png',
+      alt: 'ProtoMedic dashboard',
     },
     highlights: [
       'Python script for protocol parsing and categorization',
       'Offline-first for field reliability',
-      'Quick reference designed for 3am calls'
+      'Clean interface for 3am protocol verification'
     ],
   },
   {
@@ -134,6 +135,26 @@ const projects: Project[] = [
       'Component composition patterns',
       'Voting and interaction features planned'
     ],
+  },
+  {
+    id: 'bridge',
+    name: 'Bridge',
+    tagline: 'Reminders Template Bridging Application',
+    description: 'A native iOS tool that bridges the gap between structured templates and Apple Reminders. Built for quick capture and seamless sync without cognitive friction.',
+    stack: ['Swift', 'SwiftUI', 'EventKit'],
+    status: 'Shipped',
+    image: {
+      src: '/images/projects/bridge/welcome.png',
+      alt: 'Bridge app welcome screen',
+    },
+    highlights: [
+      'Deep integration with Apple Reminders via EventKit',
+      'Haptic-driven, minimalist capture interface',
+      'Intelligent task categorization and timing'
+    ],
+    links: {
+      github: 'https://github.com/bree-jeune/bridge-app.git',
+    },
   },
 ];
 
@@ -164,13 +185,19 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <article key={project.id} className="project-card-custom">
               <div className="project-image-wrapper">
-                <Image
-                  src={project.image.src}
-                  alt={project.image.alt}
-                  width={320}
-                  height={200}
-                  style={{ objectFit: 'cover', maxWidth: '100%', height: 'auto' }}
-                />
+                {['protomedic', 'bridge', 'neuronibble'].includes(project.id) ? (
+                  <DeviceMockup>
+                    <img src={project.image.src} alt={project.image.alt} />
+                  </DeviceMockup>
+                ) : (
+                  <Image
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    width={320}
+                    height={200}
+                    style={{ objectFit: 'cover', maxWidth: '100%', height: 'auto' }}
+                  />
+                )}
               </div>
 
               <div className="project-content">
